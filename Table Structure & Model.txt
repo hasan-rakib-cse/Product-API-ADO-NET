@@ -1,0 +1,49 @@
+Table Structure:
+
+CREATE TABLE Products (
+    Id INT PRIMARY KEY IDENTITY (1, 1) NOT NULL,
+    ProductName NVARCHAR (100) NOT NULL,
+    ShortDescription NVARCHAR (200),
+    LongDescription NVARCHAR (500),
+    ProductCode NVARCHAR (30) NOT NULL,
+    SalePrice DECIMAL (18, 2) NOT NULL,
+	Weight DECIMAL (18, 2),
+    Unit NVARCHAR (20),
+    Brand NVARCHAR (100),
+	ProductWarranty INT,
+	VAT DECIMAL (18, 2),
+	CreatedDate DATETIME2(7) 
+);
+
+
+Model:
+	
+		public int Id { get; set; }
+
+        [Required, StringLength(50)]
+        public string ProductName { get; set; }
+
+        [StringLength(200)]
+        public string? ShortDescription { get; set; }
+
+        [StringLength(500)]
+        public string? LongDescription { get; set; }
+
+        [Required, StringLength(30)]
+        public string ProductCode { get; set; }
+
+        [Required]
+        public decimal SalePrice { get; set; }
+       
+        public decimal Weight { get; set; }
+		
+		public string Unit { get; set; }
+		
+		public string Brand { get; set; }
+
+        public int ProductWarranty { get; set; }
+
+        public decimal VAT { get; set; }
+
+        public bool IsActive { get; set; }
+        public DateTime CreatedDate { get; set; }
